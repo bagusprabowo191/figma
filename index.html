@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skincare Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    header, nav, section, footer {
+      padding: 16px;
+    }
+    .banner img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .produk-grid, .kategori-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .produk-card, .kategori-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    nav.bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #eee;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+    }
+    button {
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 6px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .dark-mode {
+      background-color: #222;
+      color: #eee;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- ✅ HOME -->
+<header>
+  <h2>Selamat Datang di Skincare Store</h2>
+  <input type="text" placeholder="Cari produk..." />
+</header>
+
+<section class="banner">
+  <img src="banner-skincare.jpeg" alt="Promo Skincare">
+</section>
+
+<section>
+  <h3>Kategori</h3>
+  <div class="kategori-grid">
+    <div class="kategori-card">
+      <strong>Serum</strong>
+      <p>Jestham Platinum 4% Niacinamide</p>
+      <img src="jestham-serum.jpeg" width="100%">
+      <p>Booster Glow Dream Serum</p>
+      <img src="booster-glow.jpeg" width="100%">
+    </div>
+    <div class="kategori-card">
+      <strong>Moisturizer</strong>
+      <p>Jestham 10x Whitening Lotion</p>
+      <img src="whitening-lotion.jpeg" width="100%">
+      <p>Jestham Barrier Gel Peptide</p>
+      <img src="barrier-gel.jpeg" width="100%">
+    </div>
+    <div class="kategori-card">
+      <strong>Sunscreen</strong>
+      <p>UV Defense Bright Up SPF 50+++</p>
+      <img src="uv-defense.jpeg" width="100%">
+    </div>
+    <div class="kategori-card">
+      <strong>Masker</strong>
+      <p>3IN1 Bright Boosting Mask</p>
+      <img src="masker-3in1.jpeg" width="100%">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Rekomendasi Produk (Sunscreen)</h3>
+  <div class="produk-grid">
+    <div class="produk-card">
+      <img src="uv-defense.jpeg" width="100%">
+      <p>UV Defense SPF 50+++<br>⭐ 4.8 (1200 ulasan)</p>
+      <button onclick="gotoDetail()">Lihat Detail</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Promo Serum</h3>
+  <p>Diskon 20% untuk semua serum bulan ini!</p>
+</section>
+
+<!-- ✅ DETAIL PRODUK -->
+<section id="detail-produk" class="hidden">
+  <h3>Detail Produk</h3>
+  <div class="produk-detail">
+    <img src="sunscreen1.jpeg" width="100%">
+    <h4>UV Defense Bright Up SPF 50+++</h4>
+    <p>Harga: Rp89.000<br>Rating: ⭐4.8 (1200 ulasan)</p>
+    <p>Manfaat: Melindungi kulit dari sinar UV, mencerahkan wajah.</p>
+    <label>Ukuran</label>
+    <select>
+      <option>15ml</option>
+      <option>30ml</option>
+    </select>
+    <button>Tambah ke Keranjang</button>
+    <button onclick="goBack()">Kembali</button>
+  </div>
+</section>
+
+<!-- ✅ KERANJANG -->
+<section id="keranjang" class="hidden">
+  <h3>Keranjang</h3>
+  <div>
+    <p>UV Defense Bright Up x1 - Rp89.000</p>
+    <button>Checkout</button>
+    <button onclick="goBack()">Kembali</button>
+  </div>
+</section>
+
+<!-- ✅ CHECKOUT -->
+<section id="checkout" class="hidden">
+  <h3>Checkout</h3>
+  <form>
+    <label>Alamat Pengiriman</label>
+    <input type="text" placeholder="Alamat lengkap">
+    <label>Metode Pembayaran</label>
+    <select>
+      <option>Transfer Bank</option>
+      <option>QRIS</option>
+      <option>COD</option>
+    </select>
+    <p>Total: Rp89.000</p>
+    <button>Bayar Sekarang</button>
+    <button onclick="goBack()">Kembali</button>
+  </form>
+</section>
+
+<!-- ✅ HALAMAN AKUN -->
+<section id="akun" class="hidden">
+  <h3>Profil Saya</h3>
+  <p>Nama: Mamat</p>
+  <p>Status: Member Silver</p>
+  <button>Riwayat Pesanan</button>
+  <button>Wishlist</button>
+  <button>Edit Profil</button>
+  <button>Logout</button>
+  <button onclick="goBack()">Kembali</button>
+</section>
+
+<!-- ✅ LOGIN/REGISTER -->
+<section id="auth" class="hidden">
+  <h3>Login/Register</h3>
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+  <button>Login</button>
+  <button>Register</button>
+</section>
+
+<!-- ✅ LIVE CHAT / NOTIFIKASI / DARK MODE -->
+<section>
+  <button onclick="alert('Live chat akan dibuka...')">Live Chat</button>
+  <button onclick="alert('Notifikasi: Promo baru tersedia!')">Lihat Notifikasi</button>
+  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</section>
+
+<!-- ✅ NAVBAR -->
+<nav class="bottom">
+  <button onclick="showSection()">🏠 Home</button>
+  <button onclick="showSection('detail-produk')">🛍 Produk</button>
+  <button onclick="showSection('keranjang')">🛒 Keranjang</button>
+  <button onclick="showSection('akun')">👤 Akun</button>
+</nav>
+
+<script>
+  function showSection(id = null) {
+    document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
+    if (id) document.getElementById(id).classList.remove("hidden");
+    else location.reload(); // Home
+  }
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+  function gotoDetail() {
+    showSection('detail-produk');
+  }
+  function goBack() {
+    location.reload();
+  }
+</script>
+
+</body>
+</html>
